@@ -36,7 +36,7 @@
     "dist"
   ],
   "scripts": {
-    "prepublishOnly": "nr build",
+    "prepublishOnly": "nyxr build",
     "dev": "nyxr build --watch",
     "start": "esno src/index.ts",
     "build": "tsup src/index.ts --format cjs,esm --dts --no-splitting",
