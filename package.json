@@ -1,0 +1,61 @@
+{
+  "name": "@nyxb/install-pkg",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@9.1.1",
+  "description": "Install package programmatically.",
+  "author": "Dennis Ollhoff <contact@nyxb.email>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/nyxb",
+  "homepage": "https://github.com/nyxb/install-pkg#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyxb/install-pkg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nyxb/install-pkg/issues"
+  },
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "nyxr build",
+    "dev": "nyxr build --watch",
+    "start": "esno src/index.ts",
+    "build": "tsup src/index.ts --format cjs,esm --dts --no-splitting",
+    "release": "bumping --commit --push --tag && pnpm publish",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@jsdevtools/ez-spawn": "^3.0.4"
+  },
+  "devDependencies": {
+    "@nyxb/eslint-config": "^2.1.4",
+    "@nyxb/nyxi": "^0.0.31",
+    "@types/node": "^20.12.7",
+    "bumping": "^9.2.1",
+    "eslint": "^9.1.1",
+    "esno": "^4.7.0",
+    "find-up": "^7.0.0",
+    "publint": "^0.2.7",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}
